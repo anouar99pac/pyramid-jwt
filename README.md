@@ -40,3 +40,6 @@ Getting Started
 
 - $VENV/bin/pserve development.ini
 
+DEMO: 
+
+![screenshot_from_deom](https://user-images.githubusercontent.com/12816334/30252045-c25ef3e6-966b-11e7-9c57-b99e340e3c2b.png)
