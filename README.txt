@@ -3,16 +3,16 @@ ihm README
 
 h1. Welcome to the pyramid-jwt wiki! Prepare your environment of Pyramid, we work with python 3.5
 
-anouar99pac: sudo apt-get install python-virtualenv
-anouar99pac: mkdir -p Projects/pyramid-demo
-anouar99pac: virtualenv -p /usr/bin/python3 Projects/pyramid-demo
-Already using interpreter /usr/bin/python3
-Using base prefix '/usr'
-New python executable in Projects/pyramid-demo/bin/python3
-Also creating executable in Projects/pyramid-demo/bin/python
-Installing setuptools, pip...done.
-anouar99pac: cd Projects/pyramid-demo
-anouar99pac: . bin/activate
+- anouar99pac: sudo apt-get install python-virtualenv
+- anouar99pac: mkdir -p Projects/pyramid-demo
+- anouar99pac: virtualenv -p /usr/bin/python3 Projects/pyramid-demo
+- Already using interpreter /usr/bin/python3
+- Using base prefix '/usr'
+- New python executable in Projects/pyramid-demo/bin/python3
+- Also creating executable in Projects/pyramid-demo/bin/python
+- Installing setuptools, pip...done.
+- anouar99pac: cd Projects/pyramid-demo
+- anouar99pac: . bin/activate
 
 
 pip install pyramid
