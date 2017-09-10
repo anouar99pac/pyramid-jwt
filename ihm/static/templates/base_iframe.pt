@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="${request.locale_name}"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"  
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="neteven_international"
+      >
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="pyramid web application">
+    <meta name="Neteven" content="Neteven Project">
+    <link rel="shortcut icon" href="${request.static_url('ihm:static/img/pyramid-16x16.png')}">
+    <!-- <title>Le logiciel Neteven</title> -->
+    <script src="${request.static_url('ihm:static/js/lib/jquery.min.js')}"></script>
+    <link href="${request.static_url('ihm:static/css/bootstrap.min.css')} " rel="stylesheet">
+    <link href="${ request.static_url('ihm:static/css/loading-bar.css') }" rel="stylesheet"/>
+    <!-- <link href="${request.static_url('ihm:static/css/Toolbar.css')}" rel="stylesheet"> -->
+
+    <link rel="stylesheet" type="text/css" href="${request.static_url('ihm:static/fonts/favicon.ico')}" />
+    <link rel="stylesheet" type="text/css" href="${request.static_url('ihm:static/css-reactive/demo.css')}" />
+    <link rel="stylesheet" type="text/css" href="${request.static_url('ihm:static/css-reactive/style.css')}" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700,300|Sancreek|Raleway:100' rel='stylesheet' type='text/css' />
+
+    <script type="text/javascript" src="${request.static_url('ihm:static/js/lib/modernizr.custom.79639.js')}"></script>
+
+
+    <script src="${request.static_url('ihm:static/js/lib/angular.min.js')}" ></script>
+    <script src="${request.static_url('ihm:static/js/config_angular/httpPostAsForm.js')}" ></script>
+    <script src="${request.static_url('ihm:static/js/lib/ui-bootstrap-tpls-0.14.3.min.js')}"></script>
+    <script  src="${request.static_url('ihm:static/js/lib/loading-bar.js')}"></script>
+    <script  src="${request.static_url('ihm:static/js/lib/jquery.lettering-0.6.1.min.js')}"></script>
+      <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- Bootstrap core CSS -->
+      <!--[if lt IE 9]>
+        <script src="${request.static_url('ihm:static/js/html5shiv.js')}"></script>
+        <script src="${request.static_url('ihm:static/js/respond.min.js')}"></script>
+      <![endif]-->
+    <!-- <script>-->
+     
+  <tal:block metal:define-slot="header">
+  </tal:block>
+
+  </head>
+
+  <body class="neteven  snapjs-left">
+
+    <div class="starter-template">
+      <!--<div class="container">
+        <div id="content">-->
+      <div class="">
+        <div id="content">
+            <a class="scrolldown" style="display: none;"></a>
+          <tal:block metal:define-slot="content">
+          </tal:block>
+        </div>
+        <div id="footer" style="color: antiquewhite;">
+          <div class="row">
+            <div class="links">
+              <ul>
+                <li class="current-version" i18n:translate="ihm.root.version">Version v1.0.1</li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="copyright">
+              <a class="scrollup" style="display: none;">Scroll</a>
+              <span>&copy;Open Source anouar99pac GitHub</span>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script src="${request.static_url('ihm:static/js/lib/bootstrap.min.js')}"></script>
+    <link href="${request.static_url('ihm:static/css/animate.css')}" rel="stylesheet">
+  
+  </body>
+  <script>
+         $(window).scroll(function(){
+
+            if ($(this).scrollTop() > 150) {
+              $('.scrollup').fadeIn();
+            } else {
+              $('.scrollup').fadeOut();
+            }
+
+            if ($(this).scrollTop() > 10) {
+              $('.scrolldown').fadeIn();
+            } 
+            
+            if($(this).scrollTop() + $(this).height() +1 >= $(document).height()){
+              $('.scrolldown').fadeOut();
+            }
+          }); 
+          
+          $('.scrollup').click(function(){
+            $("body").animate({ scrollTop: 0 }, 600);
+            return false;
+          });
+
+          $('.scrolldown').click(function(){
+            console.log("scroll down")
+            console.log($('body').scrollTop())
+            $('body').animate({scrollTop: "+=" + ($(document).height())/2}, 'slow');
+            return false;
+          });
+    </script>
+</html>

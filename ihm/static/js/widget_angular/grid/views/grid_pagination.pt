@@ -1,0 +1,32 @@
+<div class="row" 
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  i18n:domain="neteven_international">
+  <div class="" id="" style="float:right;padding-right:20px;padding-bottom:10px;">
+    <!-- current items number  -->
+    <span ng-if="gridOptions.paginationCurrentPage>1"><span>{{(gridOptions.paginationCurrentPage-1)*gridOptions.paginationPageSize+1}}</span>
+
+
+        <span ng-if="gridOptions.totalItems< gridOptions.paginationPageSize">-{{gridOptions.totalItems}}</span>
+        <span ng-if="gridOptions.totalItems> gridOptions.paginationPageSize">-{{gridOptions.paginationCurrentPage*gridOptions.paginationPageSize}} </span>
+        <span>of {{gridOptions.totalItems}} items</span>
+    </span>
+    <span ng-if="gridOptions.paginationCurrentPage==1">1
+        <span ng-if="gridOptions.totalItems< gridOptions.paginationPageSize">-{{gridOptions.totalItems}}</span>
+        <span ng-if="gridOptions.totalItems> gridOptions.paginationPageSize">-{{gridOptions.paginationPageSize}}</span>
+        <span>of {{gridOptions.totalItems}} items</span>
+    </span>
+    <!-- first page button -->
+    <button type="button" role="menuitem" class="btn glyphicon glyphicon-step-backward text-info" ng-click="gridApi.pagination.seek(1)" ng-disabled="gridApi.pagination.cantPageBackward()"></button>
+    <!-- previous page button -->
+    <button type="button" role="menuitem" class="btn glyphicon glyphicon-triangle-left text-info" ng-click="gridApi.pagination.previousPage()" ng-disabled="" aria-label="Page to" ></button>
+    <!-- input to set page number -->
+    <input type="number" min="1" max="{{gridApi.pagination.getTotalPages()}}" ng-model="gridOptions.paginationCurrentPage" class="form-control" style="width:100px;display:inline;"/>
+    <!-- next pages button-->
+    <button type="button" role="menuitem" class="btn glyphicon glyphicon-triangle-right text-info" ng-click="gridApi.pagination.nextPage()" ng-disabled="" aria-label="Page to" ></button>
+    <!-- last page button -->
+    <button type="button" role="menuitem" class="btn glyphicon glyphicon-step-forward text-info" ng-click="gridApi.pagination.seek(gridApi.pagination.getTotalPages())" ng-disabled=""></button>
+    <!-- select of page sizes -->
+    <select ng-model="gridOptions.paginationPageSize" ng-options="o as o for o in gridOptions.paginationPageSizes" class="form-control" style="width:100px;display:inline;"></select>
+    items per page
+  </div>
+</div>

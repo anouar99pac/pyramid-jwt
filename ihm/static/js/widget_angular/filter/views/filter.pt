@@ -1,0 +1,146 @@
+<html
+    lang="${request.locale_name}"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="neteven_international"
+    >
+  	<!-- header -->
+  	<head>
+	<style>
+		.popover{
+			font-size: 14px;
+		}
+		.bootstrap .tags.focused {
+		  border-color: #66afe9;
+		  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(102,175,233,0.6);
+		}
+
+		.bootstrap .tags .tag-item {
+		  background: #428bca;
+		  border: 1px solid #357ebd;
+		  border-radius: 4px;
+		  color: #fff;
+		}
+
+		.bootstrap .tags .tag-item.selected {
+		  background: #d9534f;
+		  border: 1px solid #d43f3a;
+		  border-radius: 4px;
+		  color: #fff;
+		}
+
+		.bootstrap .tags .tag-item button {
+		  background: transparent;
+		  color: #000;
+		  opacity: .4;
+		}
+
+		.bootstrap .autocomplete {
+		  border-radius: 4px;
+		}
+
+		.bootstrap .autocomplete .suggestion-item.selected {
+		  color: #262626;
+		  background-color: #e9e9e9;
+		}
+
+		.bootstrap .autocomplete .suggestion-item em {
+		  font-weight: normal;
+		  background-color: #ffff00;
+		}
+
+		.bootstrap .autocomplete .suggestion-item.selected em {
+		  color: #262626;
+		  background-color: #ffff00;
+		}
+
+		.btn-info{
+			background:#7E204D;
+			border:none;
+		}
+		.btn-info:hover{
+			opacity:0.9;
+			background:#7E204D;
+		}
+		.btn-info.focus, .btn-info:focus{
+			opacity:1;
+			background:#7E204D;
+			border: #7E204D;
+		}
+	</style>
+	</head>
+	<body>
+		<div class="row col-md-12" xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+		    i18n:domain="neteven_international">
+		    <h3 i18n:translate="ihm.filter">Outils de recherche:</h3>
+		    <div class="col-md-10">
+			    <table class="table" style="border-radius:10px;margin-right:0px;">
+			    	<tr ng-repeat="criteria in filterCriterias" style="background:white">
+				    	<!-- les colonnes à selectionnées  du filtre -->
+			      		<td class="col-sm-4">
+						    <select  class="form-control" ng-model="column_filter" class="btn btn-default" ng-changed="operators=column.operators" ng-options="column.name for column in filterColumns" ng-change="ChangeCriteriasColumn($index, column_filter)" ng-init="column_filter=filterColumns[criteria.field]">
+						    	 <option value="">--</option>
+						    </select>
+					    <!-- les opérateurs à appliquer à chaque colonne -->
+						</td>
+						<td class="col-sm-4">
+						    <select  class="form-control" ng-model="Operator" class="btn btn-default" ng-init="Operator='--'" ng-change="changeOperator($index,Operator)">
+						    	<option value="--">--</option>
+						    	<option ng-repeat="(operator_key, operator) in filterOperators[criteria.field]" ng-value="operator_key">{{operator.name}}
+						    	</option>
+						    </select>
+						</td>
+						<td class="col-sm-4">
+							<!-- input type text -->
+						    <input type="text" ng-if="filterOperators[criteria.field][criteria.operator]['type']=='text'" placeholder="{{filterOperators[criteria.field][criteria.operator].name}}" class="form-control" ng-model="criteria.value"/>
+				            <!-- input number -->
+				            <input type="number" ng-if="filterOperators[criteria.field][criteria.operator]['type']=='number'" placeholder="{{filterOperators[criteria.field][criteria.operator].name}}" class="form-control" ng-model="criteria.value"/>
+						    <!-- inputmultitag -->
+						    <tags-input 
+						    	ng-if="filterOperators[criteria.field][criteria.operator]['type']=='multipleTag'" 
+						    	class="bootstrap" 
+						    	input-class="form-control"
+						    	ng-model="criteria['value']"  		 
+						    	placeholder="ajouter plusieurs valeurs" 
+		                		on-tag-added="tagAdded($tag)"
+		                		on-tag-removed="tagRemoved($tag, $index)"
+		               			add-on-enter="true"
+		               			add-on-space="false"
+		               			add-on-comma="true"
+		               			add-on-paste="true"
+		               			paste-split-pattern="[;,\n]"
+		               			replace-spaces-with-dashes="false"
+		               			 >
+		               		</tags-input>
+		               		<!-- input datepiker -->
+				            <p ng-if="filterOperators[criteria.field][criteria.operator]['type']=='date'" class="input-group">
+				              <input type="text" class="form-control" uib-datepicker-popup="yyyy-MM-dd" ng-model="criteria['value']" is-open="status.opened" ng-required="true" close-text="Close"/>
+				              <span class="input-group-btn">
+				                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+				              </span>
+				            </p>
+						</td>
+						<td>
+							<!-- bouton d'action -->
+							<!-- ajouter une ligne de filtre -->
+							{{filterColumns[criteria.field]}}
+							<span class="btn btn-default btn-lg" ng-click="(criteria.field && criteria.operator!='--'&&((criteria.type!='bool' && criteria.value) ||(criteria.type=='bool')) && addCriteria())"  popover-trigger="mouseenter" popover-placement="top" uib-popover="ajouter un critère"><span class="glyphicon glyphicon-plus text-success"></span></span>
+						</td>
+						<td>
+							<!-- supprimer la ligne de filtre -->
+							<span ng-if="$index>0" class="btn btn-default btn-lg" ng-click="removeCriteria($index)" popover-trigger="mouseenter" popover-placement="top"  uib-popover="supprimer le critère"><span class="glyphicon glyphicon-minus text-danger"></span></span>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="col-md-2"  style="padding:8px;margin-left:0px;">
+				<!-- réinitialiser le filtre -->
+				<span class="btn btn-default  btn-lg" popover-trigger="mouseenter" popover-placement="top" uib-popover="annuler le filtre" ng-click="resetFilter()"><span class="glyphicon glyphicon-remove text-danger"></span></span>
+				<!--appliquer le filtre  -->
+				<button ng-if="gridOptions" class="glyphicon glyphicon-search btn btn-info btn-lg"  popover-trigger="mouseenter" popover-placement="top" uib-popover="lancer la recherche" ng-click="searchData()" ng-disabled="false"></button>
+			</div>
+		</div>
+	</body>
+</html

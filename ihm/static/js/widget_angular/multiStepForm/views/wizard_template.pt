@@ -1,0 +1,46 @@
+<form class="form-horizontal">
+  <style>
+    .circle
+    {
+    display: inline-block;
+    width:30px;
+    height:30px;
+    border-radius:20px;
+    font-size:15px;
+    color:#fff;
+    line-height:26px;
+    text-align:center;
+    background:#7E204D;
+    font-weight:bolder;
+    }
+  </style>
+  <ul class="nav nav-tabs">
+    <li ng-repeat="step in indexStep" ng-class="{active: $index==getCurrentStepIndex()}">
+      <a href="javascript:void(0)" > <div class="circle"> {{indexStep.indexOf(step)+1}} </div> {{step}}</a>
+    </li>
+  </ul>
+</form>
+
+<!--
+suite à une demande spécifique sur le maker 
+la directive est générique au niveau de Angular JS et pas du templates wizard.template.pt
+-->
+<div ng-controller="makerControllerData" class="form" style="margin-left:32px;">
+    <ng-include src="contentBody"></ng-include>
+  <br/>
+<div class="clearfix"></div>
+  <ul class="pager">
+    <li class="pull-left" ng-show="hasPreviousStep()">
+      <button type="button" class="btn" style="background-color:#ffe5e5;font-weight:500;" ng-click="decrementStep()"> &larr; Précédent</button>
+    </li>
+    <li class="" ng-show="hasNextStep()">
+      <button type="button" ng-disabled="!toNext" class="btn" style="background-color:#b3ffb3;font-weight:500;" ng-click="incrementStep()"> Suivant &rarr;</button>
+    </li>
+    <div class="" ng-show="!hasNextStep()">
+      <button 
+      ng-click="validationForm(message_data)" class="btn btn-success">Valider</button>
+    </div>
+  </ul>
+  <div class="clearfix"></div>
+
+</div>

@@ -1,0 +1,325 @@
+/*.ui-grid{
+  width: 1650px;
+}*/
+
+.grid .popover-content {
+  font-size: 12px;
+  z-index: 5000;
+}
+.ui-grid-pager-container {
+  float: right;
+}
+.msg{
+  cursor: pointer;
+}
+/*.ui-grid .ui-grid-row div.ng-scope {
+    height: 77px;
+    padding-left: 10px;
+    padding-top: 18px;
+    padding-bottom: 5px;
+    
+    float:center;
+  }
+  .ui-grid .ui-grid-row a.ng-scope {
+     padding-top: 10px;
+  }*/
+/*!
+ * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/* Toggle Styles */
+
+
+#wrapper {
+    margin-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    margin-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background:#272727;
+
+    /*background: #7E204D;;*/
+
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 200px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    /*position: absolute;*/
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -150px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 200px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    /*color: #fff;*/
+    color: white;
+    /*background: rgba(255,255,255,0.2);*/
+    background: #610B38;
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+.sidebar-nav li a.active{
+  background: #610B38;
+}
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+    color: #ffffff
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: white;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
+}
+
+
+
+.sidebar-nav li a .glyphicon {
+    float: left;
+    top: 13px;
+}
+#menu-toggle{
+    /*margin-top: 20px;*/
+    /*margin-left: 10px;*/
+    padding: 10px;
+    background-color: #7E204D;
+    /*padding-right: 15px;*/
+    border-color:  #7E204D; 
+    display: inline;
+}
+@media(min-width:1450px) {
+   #wrapper {
+        margin-left: 180px;
+
+    }
+    #menu-toggle{
+    /*margin-top: 20px;*/
+    /*margin-left: 10px;*/
+    padding: 10px;
+    background-color: #7E204D;
+    /*padding-right: 15px/*;*/
+    border-color:  #7E204D; 
+    display: inline;
+}
+    #wrapper.toggled {
+        margin-left: 45px;
+    }
+
+    #sidebar-wrapper {
+        width: 180px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 45px;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+
+    #wrapper.toggled .sidebar-nav > .sidebar-brand span#sidebar-title{
+      color: #272727;
+      display: hidden;
+    }
+    #wrapper.toggled  #menu-toggle{
+        margin-left: -105px;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+     }
+}
+
+/*@media(max-width:768px) {
+   /*#menu-toggle{
+    margin-top: 100px;
+    margin-left: 10px;
+    padding: 10px;
+    background-color: #7E204D;
+    padding-right: 25px;
+    border-color:  #7E204D; 
+
+    }
+    #wrapper {
+        margin-left: 180px;
+
+    }
+
+    #wrapper.toggled {
+        margin-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 180px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
+
+
+
+
+
+/*@media(min-width:850px) {
+
+  #menu-toggle{
+    margin-top: 95px;
+    margin-left: 10px;
+      padding: 10px;
+      background-color: #7E204D;
+      padding-right: 25px;
+      border-color:  #7E204D; 
+
+    }
+    #sidebar-wrapper {
+        width: 180px;
+        
+    }
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+    #wrapper.toggled {
+        margin-left: 0;
+    }
+
+}*/
+/*@media (min-width: 979px) {
+#menu-toggle{
+    margin-top: 30px;
+    margin-left: 10px;
+      padding: 10px;
+      background-color: #7E204D;
+      padding-right: 25px;
+      border-color:  #7E204D; 
+
+    }
+    #sidebar-wrapper {
+        width: 180px;
+        
+    }
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+    #wrapper.toggled {
+        margin-left: 0;
+    }
+
+}
+
+/*@media(min-width:695px) {}
+
+  #menu-toggle{
+    margin-top: 10px;
+    margin-left: 150px;
+      padding: 10px;
+      background-color: #7E204D;
+      padding-right: 25px;
+      border-color:  #7E204D; 
+
+    }
+    #sidebar-wrapper {
+        width: 180px;
+        top: 25px;
+        
+    }
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+}*/
+ 
+#menu-toggle:hover{
+  opacity: 0.8;
+}
+
+
+  .ui-grid-header-cell.ng-scope{
+     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,f1f1f1+50,e1e1e1+51,f6f6f6+100;White+Gloss+%231 */
+background: rgb(255,255,255); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(241,241,241,1) 50%, rgba(225,225,225,1) 51%, rgba(246,246,246,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(241,241,241,1) 50%,rgba(225,225,225,1) 51%,rgba(246,246,246,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f6f6f6',GradientType=0 ); /* IE6-9 */
+
+}
+
+

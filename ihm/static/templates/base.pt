@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="${request.locale_name}"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"  
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="neteven_international"
+      tal:define="get_url_if_route_exists import:ihm.utilities.helper.get_url_if_route_exists"
+      >
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="pyramid web application">
+    <meta name="Neteven" content="Neteven Project">
+    <link rel="shortcut icon" href="${request.static_url('ihm:static/img/pyramid-16x16.png')}">
+      <!-- Latest compiled and minified CSS -->
+    <link href="${request.static_url('ihm:static/css/bootstrap.min.css')} " rel="stylesheet">
+    <link href="${request.static_url('ihm:static/css/main.css')}" rel="stylesheet">
+    <link href="${request.static_url('ihm:static/css/widgets.css')}" rel="stylesheet">
+    <link href="${request.static_url('ihm:static/css/theme.css')}" rel="stylesheet">
+    <link href="${ request.static_url('ihm:static/css/loading-bar.css') }" rel="stylesheet"/>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- Bootstrap core CSS -->
+      <!--[if lt IE 9]>
+        <script src="${request.static_url('ihm:static/js/html5shiv.js')}"></script>
+        <script src="${request.static_url('ihm:static/js/respond.min.js')}"></script>
+      <![endif]-->
+    <!-- angular js et création du module principal de l'application -->
+    <script src="${request.static_url('ihm:static/js/lib/angular.min.js')}" ></script>
+    <script src="${request.static_url('ihm:static/js/config_angular/httpPostAsForm.js')}" ></script>
+    <script src="${request.static_url('ihm:static/js/services/DataService.js')}" ></script>
+    <script src="${request.static_url('ihm:static/js/lib/ui-bootstrap-tpls-0.14.3.min.js')}"></script>
+    <script src="${request.static_url('ihm:static/js/lib/loading-bar.js')}"></script>
+    <style>
+   .navbar-default{
+      font-weight:bold;
+    }
+    </style>
+    <tal:block metal:define-slot="header">
+    </tal:block>
+  </head>
+  <body class="neteven">
+    <!-- navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="header_neteven">
+        <div class="header_logo_neteven">
+          <h2>Neteven Pyramid</h2>
+        </div>
+        <div class="header_login_neteven">
+         <!-- login mail  -->
+          <span tal:condition="viewer_username" class="username">
+             <span class='info_user' style='color:white' ><b> Compte : ${viewer_username}.</b></span>
+           </span>
+           <span tal:condition="not viewer_username">
+            <span class='info_user' style='color:white'><b> Vous n'êtes pas enregistré.</b></span>
+          </span>
+        </div>
+      </div>
+      <!--  -->
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+           <a class="navbar-brand" href="${request.route_url('accueil')}">Neteven </a>
+        </div>
+        <!-- NE PAS METTRE LE HOVER CAR PB SUR LES TELEPHONE -->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li ><a href="${request.route_url('home')}" i18n:translate="ihm.root.home_start"> Stats Home <span class="sr-only">(current)</span></a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span i18n:translate="ihm.root.inventory">Inventaire</span><span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#" i18n:translate="ihm.items.import_inventory">Importer un inventaire</a></li>
+                <li><a href="#" i18n:translate="ihm.folders.management">Gestion des dossiers</a></li>
+                <li><a href="#" i18n:translate="ihm.transaltions.followup">Suivis des traductions</a></li>
+                <li class="divider"></li>
+                <li><a href="#" i18n:translate="ihm.root.mappingExport">Modèles d'export personnalisé</a></li>
+                <li><a href="#" i18n:translate="ihm.root.mappingImport">Modèle d'import personnalisé</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span i18n:translate="ihm.root.publimates">Publication</span><span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#" i18n:translate="ihm.root.mappingExportPublimate">Modèles d'export personnalisé</a></li>
+                <li><a href="${get_url_if_route_exists(request, 'console_mapping')}" i18n:translate="ihm.root.mappingConsoleCategorie">Console de mapping</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" i18n:translate="ihm.root.listings">Offres <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#" i18n:translate="ihm.root.mappingExportListing">Modèles d'export personnalisé</a></li>
+              </ul>
+            </li>
+            <li class="dropdown" role="presentation">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><span  i18n:translate="ihm.root.orders">Commandes</span><span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#" i18n:translate="ihm.orders.import_orders">Importer vos commandes</a></li>
+                <li class="divider"></li>
+                <li><a href="#" i18n:translate="ihm.root.mappingExportOrders">Modèles d'export personnalisé</a></li>
+                <li><a href="#" i18n:translate="ihm.root.mappingImport">Modèle d'import personnalisé</a></li>
+              </ul>
+            </li>
+            <!-- outils internes -->
+            <li class="dropdown" role="presentation">
+              <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="#"><span>Outils</span><span class="caret"></span> </a>
+              <ul class="dropdown-menu" role="menu">
+                  <!--<li><a href="${ request.route_url('export_csv_attributes')}">Exporter les attributs d'une place de marché</a></li>-->
+                  <li><a href="${ request.route_url('export_folder_category')}">Exporter les mapping dossiers-categories</a></li>
+                  <li><a href="${ request.route_url('export_categories')}">Exporter les modèles de categories</a></li>
+                  <li><a href="${ request.route_url('import_categories')}">Importer les modèles de categories</a></li>
+                  <li><a href="${ request.route_url('duplicate_categories_models')}">Dupliquer les modèles de catégories</a></li>
+                  <li><a href="${get_url_if_route_exists(request, 'listing_messages')}">Gestion des messages</a></li>
+              </ul>
+            </li>
+            <li class="dropdown" role="presentation">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" href="#"><span>Accès B.O</span><span class="caret"></span> </a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="https://bo-pixplace.pixmania.com">Pixamania</a></li>
+                    <li><a href="https://marchands.rueducommerce.fr">Rue du commerce</a></li>
+                    <li><a href="https://bo-pixplace.pixmania.com">Pixamania</a></li>
+                    <li><a href="https://sellercentral.amazon.fr">Amazon FR</a></li>
+                    <li><a href="https://seller.cdiscount.com">CDiscount</a></li>
+                    <li><a href="https://secure.fnac.com/Account/Logon/Logon.aspx">Fnac</a></li>
+                    <li><a href="https://www.priceminister.com/connect?action=login">Price Minister</a></li>
+                    <li><a href="https://signin.ebay.fr">Ebay Fr</a></li>
+                </ul>
+            </li>
+            <li><a href="${ request.route_url('account_management') }">Gestion des comptes</a></li>
+            <li><a href="${ request.route_url('marketplace_management') }">Gestion des MKPS</a></li>
+            <!--<li><a href="${ request.route_url('task_management') }">Gestion des tâches</a></li>-->
+            <li><a href="${ request.route_url('feed_management') }">Gestion des flux</a></li>
+            <li><a href="${ request.route_url('top_merchant') }">Top marchands</a></li>
+
+           </ul>
+          <ul class="nav navbar-nav navbar-right">
+
+            <li  tal:condition="not viewer_username"><a href="${request.route_url('login')}" i18n:translate="ihm.site.login.login">Connexion</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" i18n:translate="ihm.root.models">Régles<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#" i18n:translate="ihm.models.posting_models">Prix</a></li>
+                <li><a href="#" i18n:translate="ihm.models.description_models">Description</a></li>
+                <li><a href="#" i18n:translate="ihm.models.payment_models">Paiement</a></li>
+                <li><a href="#" i18n:translate="ihm.models.shipping_models">Livraison</a></li>
+                <li><a href="#" i18n:translate="ihm.models.scheduler_models">Stock</a></li>
+                <li><a href="#" i18n:translate="ihm.models.category_models">Catégorisation</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" i18n:translate="ihm.root.languages">Languages<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/locale?language=en&page_url=/" i18n:translate="ihm.en">English</a></li>
+                <li><a href="/locale?language=fr&page_url=/" i18n:translate="ihm.fr">Français</a></li>
+                <li><a href="/locale?language=it&page_url=/" i18n:translate="ihm.it">Italiano</a></li>
+                <li><a href="/locale?language=de&page_url=/" i18n:translate="ihm.de">Allemand</a></li>
+                <li><a href="/locale?language=es&page_url=/" i18n:translate="ihm.es">Espagnol</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" i18n:translate="ihm.root.account">Mon Compte <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Mes marketplaces</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Services clients</a></li>
+                <li><a href="${request.route_url('logout')}">Déconnexion</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <!-- page content -->
+    <div class="starter-template" >
+      <div class="container" id="wrapper" style="margin-top:120px;">
+        <div id="content" class="wrapper wrapper-content" id="page-content-wrapper">
+            <a class="scrolldown" style="display: none;"></a>
+          <tal:block metal:define-slot="content">
+          </tal:block>
+        </div>
+        <!-- page footer -->
+        <div id="footer">
+          <div class="row">
+            <a class="scrollup" style="display: none;">Scroll</a>
+            <div class="links">
+              <ul>
+                <li class="current-version" i18n:translate="ihm.root.version">Version v1.0.0</li>
+                <li><i class="glyphicon glyphicon-bookmark icon-muted"></i><a href="">Documentation Neteven</a></li>
+                <li><i class="glyphicon glyphicon-globe icon-muted"></i><a href="">Presse Neteven</a></li>
+                <li><i class="glyphicon glyphicon-home icon-muted"></i><a href="http://www.neteven.com/">Site Neteven</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="copyright">
+              Copyright &copy; Neteven 2015
+            </div>
+          </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="${request.static_url('ihm:static/js/lib/jquery.min.js')}"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="${request.static_url('ihm:static/js/lib/bootstrap.min.js')}"></script>
+    <!-- Toastr style -->
+    <link href="${request.static_url('ihm:static/css/toastr.min.css')}" rel="stylesheet">
+    <link href="${request.static_url('ihm:static/css/animate.css')}" rel="stylesheet">
+    <!-- <link href="${request.static_url('ihm:static/js/test/css/style.css')}" rel="stylesheet"> -->
+    <!-- <script src="${request.static_url('ihm:static/js/test/js/plugins/slimscroll/jquery.slimscroll.min.js')}"></script>
+    <script src="${request.static_url('ihm:static/js/test/js/plugins/pace/pace.min.js')}"></script>
+    <script src="${request.static_url('ihm:static/js/test/js/plugins/jquery-ui/jquery-ui.min.js')}"></script> -->
+    <!-- Toastr -->
+    <script src="${request.static_url('ihm:static/js/lib/toastr.min.js')}"></script>
+       <script>
+         $(window).scroll(function(){
+            if ($(this).scrollTop() > 150) {
+              $('.scrollup').fadeIn();
+            } else {
+              $('.scrollup').fadeOut();
+            }
+            if ($(this).scrollTop() > 10) {
+              $('.scrolldown').fadeIn();
+            } 
+            if($(this).scrollTop() + $(this).height() +1 >= $(document).height()){
+              $('.scrolldown').fadeOut();
+            }
+          }); 
+          $('.scrollup').click(function(){
+            $("body").animate({ scrollTop: 0 }, 600);
+            return false;
+          });
+          $('.scrolldown').click(function(){
+            console.log("scroll down")
+            console.log($('body').scrollTop())
+            $('body').animate({scrollTop: "+=" + ($(document).height())/2}, 'slow');
+            return false;
+          });
+    </script>
+  </body>
+</html>

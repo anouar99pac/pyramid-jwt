@@ -1,0 +1,83 @@
+<html
+    lang="${request.locale_name}"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    metal:use-macro="base_iframe"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    i18n:domain="neteven_international">
+
+    <tal:block metal:fill-slot="header">
+    <title>Neteven Ebay Token</title>
+        <style>
+            body{
+                background-image: url(${request.static_url('ihm:static/img/background/113H.jpg')}) !important;
+                background-position-y: 85%;
+                background-color:white;
+                -webkit-background-size: cover;
+            }
+
+            .neteven_token_ebay{
+                margin-top: 1%;
+                width: 20%;
+            }
+            .class_close{
+                position: absolute;
+                <!-- left: 18%; -->      
+                top: 35%;
+                margin-left: -100px;
+                margin-top: -100px;
+            }
+        </style>
+
+    </tal:block>
+
+
+  <tal:block metal:fill-slot="content">
+    <div class="container-fluid" ng-app="neteven">
+
+    <div class="starter-template">
+      <div class="container">
+        <div class="row" style="text-align: center;">
+            <div class="content">
+              <div>
+              <div class="row">                                       
+                <img class="neteven_token_ebay" tal:attributes="src request.static_url('ihm:static/img/neteven_logos/NETEVEN_logopurple.png')"/>
+              </div>
+              <div class="row">
+                <div class="row">
+                    <h2  style="float:left;" class="col" i18n:translate="ihm.site.ebay_token.generation"> 
+                    Génération du token eBay : </h2>
+                </div>
+                <div tal:condition="status == 0" class="row">
+                    <h3 style="float:left;"  class="col" i18n:translate="ihm.ebay.token.accept">Le token a été enregistré avec succès, vous êtes maintenant référencé chez Neteven !</h3>
+                </div>
+                <div tal:condition="status == 3" class="row">
+                    <h3 style="float:left;"  class="col" i18n:translate="ihm.ebay.token.accept">Votre session a expiré, le token n'a pas pu être validé sur notre plateforme.</h3>
+                </div>
+                <div tal:condition="status == 2" class="row">
+                    <h3 style="float:left;"  class="col" i18n:translate="ihm.ebay.token.error_interne">Une erreur interne a empêché la sauvegarde du token, veuillez contacter le support technique de Neteven.</h3>
+                </div>
+                <br/>
+                <div class="row">
+                    <button style="float:left;" class=" col-md-1 btn btn-info ok-button" onclick="close_window();">Fermer</button>
+                </div>
+              </div>
+            </div>
+         </div>
+        </div>
+      </div>
+    </div>
+  </tal:block>
+</html>
+<script>
+
+function close_window() {
+    console.warn('kokokokko');
+    open(location, '_self').close();
+    var popup = window.open(location, '_self', '');
+    popup.close();
+    return false;
+}
+
+</script>

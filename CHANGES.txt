@@ -1,0 +1,451 @@
+0.7.10 (unreleased)
+-------------------
+
+- Nothing changed yet.
+
+
+0.7.9 (2017-05-30)
+------------------
+
+- 27463 : Intégration des droits sur les projets des outils internes
+
+
+0.7.8 (2017-04-27)
+------------------
+
+- 27624: Amelioration algorithme de chiffrement en utilisant AES
+
+
+0.7.7 (2017-03-20)
+------------------
+
+- Fixe Security Manager connexion #27405
+
+
+0.7.6 (2017-03-03)
+------------------
+- 26805 : Supprimer la limite des valeurs et implementer la pagination dans le mapping de valeurs + correction nombre de produits
+- Changer le comportement de la grid face à la pagination
+
+
+0.7.5 (2017-02-28)
+------------------
+
+- Merger master et master-webapp dans la branche merge_master_webapp_tools
+- Merger merge_master_webapp_tools avec merge_preprod_webapp_tools
+- Renommer la branche merge_preprod_webapp_tools en preprod après test des plugins ihm
+- Scénario dans le ticket : 27086
+
+
+0.7.4 (2017-02-27)
+------------------
+
+- Correction Bug authentification Manager
+
+
+0.7.3 (2017-02-23)
+------------------
+
+- 27065 : Nouvelle IHM: Regression sur les notifications
+- 26805 : Supprimer la limite des valeurs et implementer la pagination dans le mapping de valeurs + correction nombre de produits
+
+
+0.7.2 (2017-02-22)
+------------------
+
+- Modifier les urls de mars.loc dans setup.py 
+
+
+0.7.1 (2017-02-10)
+------------------
+
+- Ajout de L'authentification Manager + New Version of Pyramid.
+
+
+0.7.0 (2017-01-31)
+------------------
+
+26769 : Erreur dans l'ordre d'affichage sur l'IHM
+
+
+0.6.42 (2016-12-09)
+-------------------
+
+- Add images to ihm_v2 about tokeny
+
+
+0.6.41 (2016-12-09)
+
+-------------------
+
+- Modifier des labels en italien
+- Authentification CAS pour purge Accounts
+- Purge accounts Plugin menu integration 
+
+
+0.6.40 (2016-12-07)
+-------------------
+
+-Prise en compte des commits de génération de token 
+
+
+0.6.39 (2016-12-06)
+-------------------
+
+- Augmenter l'interval de notification de 10mn 
+- (suppression du commit des token dans la branche master_bis)
+
+0.6.38 (2016-12-01)
+-------------------
+
+- Diminuer la hauteur de iframe
+
+
+0.6.37 (2016-11-29)
+-------------------
+
+- Désactiver la barre de chargement lors de requêtes Ajax
+- Mis à jour de pace.js + animate.css + bootsrap.js
+- Modifire la barre de menu (ajout de titls + supprimer des liens export de données)
+
+
+0.6.36 (2016-11-22)
+-------------------
+
+- Mise en cache de requeetes Http de get_labels
+- Ajout de suppression d'item dans sessionStorage lors de la deconnexion
+
+
+0.6.35 (2016-11-17)
+-------------------
+
+- Fixer la version de celery
+- Modifier base_iframe et ajouter le fil d'ariane pour la CDM
+
+
+0.6.34 (2016-11-07)
+-------------------
+
+- Changer les url de home et de zope instance
+
+
+0.6.33 (2016-11-04)
+-------------------
+
+- Changer la base macro pour rendre la barre de menu en pure js et supprimer la notion des url 
+- Ajout de base_iframe (pour la cdm)
+- Ajout du lancement  des actions de zope de la barre de menu vers l'iframe zope
+- séparer les fichier js par base template et les compresser  
+
+
+0.6.32 (2016-10-17)
+-------------------
+
+- Changer lien offre dans breadcrumb
+- Charger notification après 5ms 
+
+
+0.6.31 (2016-10-12)
+-------------------
+
+- Supprimer le fichier css de ui-switch et le mettre dans la cdm
+
+
+0.6.30 (2016-10-10)
+-------------------
+
+- Ajout de l'icone de puce_neteven
+
+
+0.6.29 (2016-10-10)
+-------------------
+
+- Changher lka position de scrolldow
+- Fichier js et css compressés et concaténés(cf gruntfile)
+- Changer la fréquence des notifications (3mn au lieu de 10mn)
+- Fixher le hauteur de l'iframe en fonction de certaine page
+
+
+0.6.28 (2016-10-04)
+-------------------
+
+- Resize iframe height et margin sidebar element hover
+
+
+0.6.27 (2016-09-30)
+-------------------
+
+- small sidebar pour ecran <=1950px
+- redirection profile setting lors du click sur le user name
+- change some style
+
+
+0.6.26 (2016-09-28)
+-------------------
+
+- Ajout des labels des bouton d'export dans la cdm 
+
+
+0.6.25 (2016-09-26)
+-------------------
+
+- Ajout des labels de la barre de menu
+- Modifier la route d'url zope
+- Ajout de numéro de version dans le footer de la page new_base 
+
+
+0.6.24 (2016-09-14)
+-------------------
+
+- Modif de certain labels
+
+
+0.6.23 (2016-09-09)
+-------------------
+
+- New menu bar + replaces somes files + change styles
+
+
+0.6.23.5 (2017-05-18)
+---------------------
+
+- 28063 : Contournement blocage outils internes (NB ce changement est aussi effectué dans la branche nettoyée de ihm_v2)
+
+
+0.6.23.4 (2017-03-22)
+---------------------
+
+- Scrolling everywhere.
+- Grid Scroll issue resolved.
+- Montée de version de provisioning.
+
+
+0.6.23.3 (2017-03-17)
+---------------------
+
+- Fixe gestion des comptes ascii don't convert to string
+
+
+0.6.23.1 (2016-10-05)
+---------------------
+
+- add ng-tags input + get email if exist
+-  style de grid + autocomplide inside grid
+
+
+0.6.22 (2016-08-26)
+-------------------
+
+- Mettre à jour l'appel au provisionning dans la page de marketplace_management
+
+
+0.6.21 (2016-08-08)
+-------------------
+
+- Supprimer la dépedance vers le plugin filterso
+
+
+0.6.20 (2016-07-19)
+-------------------
+
+- Monter la version de filters
+
+
+0.6.19 (2016-06-17)
+-------------------
+
+- Montée de version de database
+- New Authentification Account Manager
+- Function Génerique of authentification
+
+
+0.6.18 (2016-06-17)
+-------------------
+
+- Modifier les marges  base_iframe.pt
+- Montée de version de filtre
+
+0.6.17 (2016-06-15)
+-------------------
+
+- Modifier la page accuel.pt
+- Ajouter base_webapp.pt et attribuer le fichier base en fonction de contenaire en cours
+- Préseletionner la mkp dans tabs_directive
+- Modifier le template de la pagination de la grid
+- Ajout d'une fonction d'authentification générique 
+- Authentification AM
+
+0.6.13 (2016-06-02)
+-------------------
+
+- ajouter le label ihm.CDM.V2V.values_number_notif 
+
+
+0.6.12 (2016-05-30)
+-------------------
+
+- Changer la version de filtre 1.5.0 
+- Ajout des traductions des labels
+
+
+0.6.11 (2016-05-27)
+-------------------
+
+- Ajout des la traduction de la CDM dans les fichiers.po
+
+
+0.6.10 (2016-05-17)
+-------------------
+
+ - Ajout du numéro de version du projet déployé (tools ou webapp)
+
+0.6.9 (2016-05-10)
+------------------
+
+- ajout des paralmetre dans tabs directive et de la fonction includes dans le JS de base et base_iframe
+- require filters 1.4.1
+
+0.6.8 (2016-05-02)
+------------------
+
+- Numéro de version webapp  dynamique dans les fichierso macro
+
+
+0.6.7 (2016-05-02)
+------------------
+
+- version 1.1.7 de webapp
+
+
+0.6.6 (2016-04-28)
+------------------
+
+- Nothing changed yet.
+
+
+0.6.5 (2016-04-26)
+------------------
+
+ - Nouvelle version de database
+
+0.6.4 (2016-04-22)
+------------------
+
+- add img loader
+
+
+0.6.3 (2016-04-22)
+------------------
+-version of webapp 1.1.2
+
+
+
+0.6.2 (2016-04-22)
+------------------
+
+- Augmenter le session timaout
+
+
+0.6.1 (2016-04-21)
+------------------
+
+ - màj version de filters et database
+
+0.6.0(21.05.2016)
+----------------
+-Intégration de la compression JS avec Grunt
+-Ajout des fihcier JS + CSS des plugins d'utilisations communes dans les plugin Neteven(autocomplte, ng-tags-input, ng-sortable..)
+
+0.5.4(30.03.2016)
+-----------------
+-Mettre à jour la version de ui-bootstrap
+-Mettre à jour la dernière version de ui-grid
+-supprimer la dépendance vers le plugin filters
+
+0.5.3(23.03.2016)
+----------------
+-Change ppr.ini
+
+
+0.5.2.1(21.03.2016)
+------------------
+-require filters 1.0 version
+-adapter avec  les plugins (export file + resynch_orders + mapping)
+
+0.5.2(15.02.2016)
+----------------
+- Changes flags in dataService
+- add labels fr to filters criterias
+
+0.5.1(11.02.2016)
+-----------------
+
+-Add .mo dans Manifest
+
+0.5.0(11.02.2016)
+-----------------
+
+-Mettre à jour la page de gestion de compte avec les nouveau filtres
+-Ajout des labels
+
+
+0.4.1(08.02.2016)
+----------------
+
+changer le style de loader de la grille et ajouter de style dans base et base_iframe
+
+0.4.0 (05.02.2016)
+------------------
+
+ Extraction des filtres vers un package séparé
+ Modification des styles css
+ Ajout du scrolltop sur firefox
+
+0.3.0 (21.01.2016)
+-------------------
+
+	- Chanegement des filtres:
+		-fonction resetFilter
+		-initialisation de filterCriterias dans le scope de filter
+		-removeColumn
+	- Ajout de MarketplaceManagementController dans la page marketplace_management.pt
+	- Ajout de AccountMainController dans la page Account.pt
+	- Modifier et nettoyer le style de base.pt et base_iframe.pt
+
+2.1(16.03.2016
+--------------
+-supression ui-bootsrap pour utiliser les modules de angularstrap à côté
+-changer la taille de body en cconainer bootsrap
+
+0.2.0 (15.01.2016)
+----------------
+
+ - Fix : lorsqu'on change la fonction d'un mapping, la configuration précédente est effacée
+ - Fix : affichage du vrai path de la catégorie sur la page du mapping d'attribut
+
+0.0.7 (06.11.2015)
+----------------
+
+ - Correction de l'état de validité des catégories quand la catégorie ne contient pas d'attributs obligatoires ou pas d'attributs du tout
+
+0.0.6 (05.11.2015)
+----------------
+
+ - Lot 2 de la console de mapping
+ - Amélioration cosmétiques
+ - Fix du problème de connection
+
+0.0.3
+---
+
+Fix divers bugs
+
+0.0.2
+---
+
+Livraison du Lot 2 de la console de mapping
+
+0.0.1
+---
+
+First Version of Console Mapping.

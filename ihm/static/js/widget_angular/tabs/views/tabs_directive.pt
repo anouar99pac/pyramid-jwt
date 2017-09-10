@@ -1,0 +1,13 @@
+<div class="row col-md-12">
+	<uib-tabset>
+
+		<uib-tab ng-repeat="tab in tabs_marketplace" heading="{{tab.title}}" ng-click="getContent(tab.market_id, tabs_marketplace.indexOf(tab))" ng-model="tab" active="tab.isActive">
+
+		</uib-tab>
+	</uib-tabset>
+
+</div>
+<alert class="row col-md-12" type="danger" ng-if="showMsgError">
+	Erreur de chargement de données, veuillez reconnectez vous ou recharger la page
+</alert>
+<hr><br>

@@ -1,0 +1,350 @@
+/*select.attribut-mapped, select.mapping-type {
+    -webkit-appearance: button;
+    -webkit-border-radius: 2px;
+    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    -webkit-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -webkit-user-select: none;
+    background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+    background-position: 97% center;
+    background-repeat: no-repeat;
+    border: 1px solid #AAA;
+    color: #555;
+    font-size: inherit;
+    overflow: hidden;
+    padding: 5px 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    }
+    td span.icone {
+       font-size:150%;
+    }
+    .btn-danger {
+      background:none;
+      color:red;
+    }
+
+    .modal-edit .modal-dialog{
+      width:95%;
+      margin-top: 5%;
+    }
+  .modal-body>div>div {
+    margin-top :1%
+  }
+
+*/
+
+.cs-text {
+  width: 645px;
+  margin: 120px auto 30px;
+  cursor: default;
+}
+
+.cs-text > span {
+  display: block;
+}
+
+.cs-text-cut {
+  width: 100%;
+  height: 90px;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+}
+
+.cs-text-cut:first-child {
+  border-top: 1px solid rgba(255,255,255,0.5);
+}
+
+.cs-text-cut:last-child {
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+}
+
+.cs-text-cut:last-child span {
+  margin-top: -84px;
+}
+
+.cs-text-mid {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 50px;
+  letter-spacing: 50px;
+  line-height: 50px;
+  text-indent: 20px;
+  position: absolute;
+  top: 50%;
+  margin-top: -25px;
+  color: rgba(255,255,255,0.3);
+  text-shadow: 0 0 0 rgba(255,255,255,0.9);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.4s ease-in-out 0s;
+}
+
+.cs-text:hover .cs-text-cut:first-child {
+  transform: translateY(-25px);
+  opacity: 0.5;
+}
+
+.cs-text:hover .cs-text-cut:last-child {
+  transform: translateY(25px);
+  opacity: 0.5;
+}
+
+.cs-text:hover .cs-text-mid {
+  transition-delay: 0.3s;
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+.cs-text-cut span {
+  display: block;
+  line-height: 180px;
+  color: rgba(255,255,255,1);
+  font-size: 180px;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 6px;
+  font-family: 'Sancreek', cursive;
+  text-shadow: 7px 2px 0 rgba(255,255,255,0.3);
+}
+
+.header_neteven {
+    height:55px;
+    background:#7E204D;
+}
+
+.header_neteven .header_logo_neteven {
+    float:left;
+    margin-left: 15px;
+}
+
+.header_neteven .header_logo_neteven h2 {
+    font-size: 20px;
+    color:white;
+}
+
+.header_neteven .header_login_neteven {
+    float:right;
+    margin-right: 20px;
+    margin-top: 2px;
+}
+
+.header_neteven .header_translate a{
+    color:white;
+    font-size: 15px;
+    padding: 5px;
+}
+
+/* page de login
+*/
+.login_user input.login{
+  background-color: #7d204d;
+  border: 1px solid #7d204d;
+  color:white;
+}
+
+
+.login_user {
+    background: #efedee;
+    color: black;
+/*    padding: 30px 70px 30px 70px;*/
+    margin: auto;
+    width: 500px;
+}
+
+.neteven_login #content h1{
+    text-align: center;
+    color:white;
+}
+
+.neteven_login .panel-body {
+  padding: 40px;
+}
+
+
+.neteven_login .panel-heading {
+      font-size: 20px;
+      text-align: center;
+    padding: 10px ;
+  border-bottom: 1px solid transparent;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  color: #333;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+}
+
+.neteven_login .panel-heading span.login_title {
+      color: #7d204d;
+
+}
+
+/*
+.neteven .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+  color: #555;
+  background-color: blue;
+}
+*/
+.navbar-default {
+/*background: #272727;*/
+/*background: #7E204D;;*/
+}
+
+.navbar-default .navbar-nav>li>a{
+   font-weight: normal;
+}
+
+.navbar-default .navbar-nav>li>a:hover{
+  color:white;
+  background: #7E204D;
+
+}
+
+
+/*.navbar-default .navbar-nav>li>a{
+  color: white;
+}
+*/
+.collapse.navbar-collapse{
+ 
+ padding-right: 0px;
+
+}
+
+.navbar-right{
+ 
+ margin-left: 0px;
+}
+
+.nav>li>a {
+  padding: 15px 13px;
+}
+
+body.neteven{
+  background-color:  #f5f5f5;
+/*  background-color: #efedee;*/
+}
+
+.neteven_login #content #login_form h2{
+    text-align: center;
+    margin-top: 10px !important;
+    margin-bottom: 40px;
+}
+
+
+
+.neteven_login #content #login_form {
+  margin-top: 50px;
+      font-weight: bold;
+}
+
+
+.login_user label{
+  display: block;
+  width: 150px;
+  float: left;
+}
+
+h1.home_title{
+    font-weight: bold;
+    text-align: center;
+    color: #7E204D ;
+}
+
+table.tableau_bord tr td{
+    border: 1px solid #D9CDA4;
+}
+
+table.tableau_bord td {
+    background-position: left center;
+    background-repeat: no-repeat;
+    text-align: center;
+    width: 1%;
+}
+
+table.tableau_bord {
+  margin-top: 50px;
+}
+
+/* Permet de mettre le hover sur le menu */
+/*@media (min-width: 700px) {*/
+  .dropdown:hover .dropdown-menu {
+      display: block;
+   }
+/*}*/
+
+
+body.neteven_login{
+    background-image: url("../img/background/login.jpg") !important;
+    background-size: cover;
+}
+
+table.tableau_bord {
+    font-size: 105%;
+}
+
+table.tableau_bord tr.tabHeader,table.tableau_bord td.tabHeader {
+    padding: 2px 4px;
+    background: #EBE3CB;
+    text-align: center;
+    font-weight:bold;
+}
+.dijitReset, .dijitInline, .dijitButtonNode{
+    border: none;
+
+}
+.dijitInline{
+    padding: 5px;
+}
+
+.container {
+  width: 95% !important;
+}
+
+
+.scrollup{
+      width:40px;
+      height:40px;      
+      text-indent:-9999px;
+      opacity:0.3;
+      position:fixed;
+      bottom:50px;
+      right:70px;
+      display:none;     
+      background: url('./icon_top.png') no-repeat;
+      cursor: pointer;
+  }
+
+  .scrolldown{
+      width:40px;
+      height:40px;      
+      /*text-indent:-9999px;*/
+      opacity:0.3;
+      z-index: 1000;
+      position:fixed;
+      top:150px;
+      right:70px;
+      /*display:none;     */
+      background: url('./icon_top.png') no-repeat;
+      -webkit-transform:rotate(180deg); /*Safari 3.1+/Chrome*/
+      -o-transform:rotate(180deg);  /*Opera 10.5+*/
+      -moz-transform: rotate(180deg); /*Firefox 3.5+*/
+      cursor: pointer;
+  }
+  /*theme Neteven*/
+  .breadcrumb li>a {
+    color: #7E204D;
+  }
+
+  .nav-tabs>li a{
+    color: #7E204D;
+    font-weight: bold;
+    background: white;
+  }
