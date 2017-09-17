@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from ihm.utilities.constants import ALLOWED_NETEVEN_IPS
 import json
 import ast
 from pyramid.view import view_config
@@ -96,17 +95,6 @@ def check_group_of_user(request, type_of_user, plugin_name):
                 return False
     else:
         return False
-
-
-def check_ip_is_neteven(request):
-    ip_address = request.client_addr
-    checked = False
-    if not(ip_address == '127.0.0.1'
-                 or ip_address.startswith('159.180.255.62')
-                 or ip_address.startswith('172.17.0')
-                 or bool(filter(lambda x: ip_address.startswith(x), ALLOWED_NETEVEN_IPS))):
-        checked = True
-    return checked
 
 
 def denied_external_links(plugin_name):

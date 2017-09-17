@@ -7,11 +7,9 @@ from pyramid.events import(
     BeforeRender,
     # AfterTraversal
 )
-from pyramid.security import (
-    authenticated_userid,
-)
-
-from ihm.utilities.context import is_webapp, is_tools
+# from pyramid.security import (
+#    authenticated_userid,
+# )
 
 logger = logging.getLogger('ihm')
 

@@ -12,7 +12,7 @@ import pyramid_jwt
 import jwt, random, string
 
 
-@view_config(route_name='neteven_json_web_token',
+@view_config(route_name='json_web_token',
              renderer='json')
 def json_web_token(request):
     """
@@ -39,33 +39,11 @@ def json_web_token(request):
         return
 
 
-@view_config(route_name='neteven_credentials',
+@view_config(route_name='user_credentials',
              renderer='json')
 @checking_security_request_decorator()
 def api_credentials(request, credentials):
     print('try to call this Http URL api_credentials')
-    # check for fake auth token in header and return test users if valid, this security is implemented server side
-    # in a real application
-    # if (connection.request.headers.get('Authorization') === 'Bearer fake-jwt-token') {
-    #                 connection.mockRespond(new Response(
-    #                     new ResponseOptions({ status: 200, body: [testUser] })
-    #                 ));
-    #             } else {
-    #                 // return 401 not authorised if token is null or invalid
-    #                 connection.mockRespond(new Response(
-    #                     new ResponseOptions({ status: 401 })
-    #                 ));
-    #             }
-    # the header must contain the token or token jwt defined here
-    # and we have to code decorator or token
-    # for each call we must verify token call
-    # i get token
-
-    # bearer = request.authorization[0]
-    # token = request.authorization[1]
-    # if token:
-    #     user = checking_security_request(request, token)
-    print ('okkokokokokok')
     result = [credentials]
     return result
 

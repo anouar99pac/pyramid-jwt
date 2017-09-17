@@ -27,16 +27,21 @@ def checking_security_request(request, token):
         # we want to return a dico of credentials
         # could keep it in the request ?
         # TODO We can check the group of user here if he is allow or not to user this call
-    except:
+    except (jwt.InvalidTokenError, jwt.DecodeError):
         LOG.error('Error Token is not valid')
         return Response(status=400, body=json.dumps({'Error': "Invalid credentials"}), content_type="application/json")
+    except jwt.ExpiredSignatureError:
+        LOG.error('Error Token has been expired')
+        return Response(status=400, body=json.dumps({'Error': "token expired We have to return to login page"}), content_type="application/json")
     return output
 
 
 def checking_security_request_decorator():
     """ 
-    This function will execute each time before handle a call request
-    Security to check tokens
+        This function will execute each time before handle a call request
+        Security to check tokens
+        get token date expiration
+        # pyramid_jwt.expiration(token)
     """
     def decorated(view_function):
             def wrapper(request):
@@ -50,9 +55,12 @@ def checking_security_request_decorator():
                     # we want to return a dico of credentials
                     # could keep it in the request ?
                     # TODO We can check the group of user here if he is allow or not to user this call
-                except:
+                except (jwt.InvalidTokenError, jwt.DecodeError):
                     LOG.error('Error Token is not valid')
                     return Response(status=400, body=json.dumps({'Error': "Invalid credentials"}), content_type="application/json")
+                except jwt.ExpiredSignatureError:
+                    LOG.error('Error Token has been expired')
+                    return Response(status=400, body=json.dumps({'Error': "token expired We have to return to login page"}), content_type="application/json")
                 return view_function(request, output)
             return wrapper
     return decorated
@@ -63,24 +71,42 @@ class ServiceJwt(object):
     Class provide many services about Json Web Token, we need it to communicate with App Angular
     These Services : Generate Token - Valid Token - define secret key
     """
+    saveToken = None
 
     def getVirtualId(self):
         return "".join([string.ascii_letters.__add__(string.digits)[random.randint(0, len(string.ascii_letters + string.digits) - 1)] for i in range(10)])
 
-    def getToken(self, credentials):
+    def encodeToken(self, credentials):
         # I add a new fake id fictif, because i want generate a new signature each time inside token
         id_virtual = self.getVirtualId()
         credentials['id_virtual'] = id_virtual
         token = jwt.encode(credentials, SECRET_KEY, algorithm='HS256')
+        saveToken = token
         LOG.info('Token has been generated successfully')
         output = jwt.decode(token, SECRET_KEY)
-        print('Token has been succussfully generated: {} \n and it decode is equal to {}'.format(token, output))
+        print ('Token has been succussfully generated: {} \n and it decode is equal to {}'.format(token, output))
         return token
 
     def validToken(self):
-        pass
+        try:
+            output = jwt.decode(token, SECRET_KEY)
+            return True
+        except:
+            return False
+
+    def decodeToken(self, request, token):
+        try:
+            output = jwt.decode(token, SECRET_KEY)
+        except:
+            raise HTTPNotFound(request)
+            return
+        return output
 
     def expireToken(self):
+        pass
+
+    def checkPolicySession(self):
+        """if we can check connexion of pyramid"""
         pass
 
 tokenJwt = ServiceJwt()

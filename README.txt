@@ -1,0 +1,11 @@
+pip install -e .
+
+Getting Started
+---------------
+
+- cd <directory containing this file>
+
+- $VENV/bin/python setup.py develop
+
+- $VENV/bin/pserve development.ini
+

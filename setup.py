@@ -21,7 +21,7 @@ setup(
         "Topic :: Internet :: WWW/HTTP",
         "Topic :: Internet :: WWW/HTTP :: WSGI :: Application",
     ],
-    author='NETEVEN',
+    author='ANOUAR MOKHTARI',
     author_email='',
     url='',
     keywords='web wsgi bfg pylons pyramid',
